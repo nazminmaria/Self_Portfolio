@@ -1284,3 +1284,123 @@ body.light-mode .button-secondary {
         font-size: 30px;
     }
 }
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card {
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--blue);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-reveal,
+    .scroll-reveal.revealed,
+    .project-card,
+    .project-card:hover {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 0;
+    height: 3px;
+    background: var(--gold);
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--gold);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+    .back-to-top {
+        right: 18px;
+        bottom: 18px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.skill-level {
+    margin-top: 24px;
+}
+
+.skill-level-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.skill-level-info span:last-child {
+    color: var(--gold);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 5px;
+    background: var(--surface-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-bar span {
+    display: block;
+    height: 100%;
+    background: var(--gold);
+    border-radius: 10px;
+}
